@@ -27,6 +27,7 @@
 | [tcs-tomato-bestseller-novel](tcs-tomato-bestseller-novel/) | v0.1.0 | tomato-best-seller-novel（番茄爆款小说专家） | 番茄爆款网文全流程引擎：七阶段工作流（零问开工→画像→命中率预判→知识路由→生产→质检→落盘）+ 五维命中率建模 + 每章写作硬标准 + 22 个纯标准库脚本（选题打分/拆书指纹/钩子密度/节奏分析/去AI味/数据诊断/IP改编/收益模拟/md导出），含 48 份 2026-09 知识库 | [tcs-tomato-bestseller-novel.zip](packages/tcs-tomato-bestseller-novel.zip) |
 | [tcs-fullstack-dev](tcs-fullstack-dev/) | v0.1.0 | fullstack-dev（全栈开发专家 鹏城信息AI专家） | 全栈应用开发与交付工作流：六阶段（需求澄清六问→架构决策五项→脚手架基础设施→三层分离实现→前后端集成与实时→四步验证）+ 10 条硬规则 + 前端边界约定，附脚手架清单（配置校验/错误体系/日志脱敏/健康检查/优雅停机）、认证与集成（JWT 轮换/401 重放/错误映射）、实时选型与生产加固、验证四步与交付模板 | [tcs-fullstack-dev.zip](packages/tcs-fullstack-dev.zip) |
 | [tcs-ui-designer](tcs-ui-designer/) | v0.1.0 | ui-designer（UI 设计专家 像素君） | UI 设计系统与像素级界面交付工作流：四步流程（设计上下文→token 基础→组件架构与视觉层级→交接与 QA）+ 10 条硬规则（对比度/焦点/44px 触达/不靠颜色传信息/容器查询）+ AI Slop 审美红线，内置 impeccable 设计引擎 28 份场景文档（增强冲击力/配色/排版/动效/响应式/评审/打磨/性能/设计系统提取）与前端落地动效配方 | [tcs-ui-designer.zip](packages/tcs-ui-designer.zip) |
+| [tcs-workbench-builder](tcs-workbench-builder/) | v0.1.0 | workbench-builder（工作台搭建专家 搭台师） | 工作台搭建方法论与蓝图交付工作流：六步流程（需求澄清→角色场景地图→模块架构 P0/P1/P2→集成与数据流→看板布局→落地路线）+ 7 条执行铁律 + 边界规则，附 12 问调研清单、集成四梯度与写回四约束、自动化四要素与 8 条可抄规则及兜底、看板布局模板与指标口径表、两周 MVP 排期与可判定验收口径 | [tcs-workbench-builder.zip](packages/tcs-workbench-builder.zip) |
 
 ## 安装
 
