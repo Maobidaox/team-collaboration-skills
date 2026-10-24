@@ -5,7 +5,6 @@
 - `tcs-<name>/` 等子目录：技能源码，可直接复制到 WorkBuddy 技能目录使用
 - `packages/`：同样内容打包好的技能包（`.zip`），可直接导入 WorkBuddy
 - `scripts/install.sh`：一条命令安装技能
-- `scripts/release.sh`：一条命令完成打包、入库与发布 Release
 
 ## 命名规范
 
@@ -56,15 +55,12 @@ cd team-collaboration-skills
 
 新增技能时按此顺序：以 `tcs-<name>` 放入源码目录 → 生成 `packages/tcs-<name>.zip` →
 更新本 README 收录清单 → 打 Release 标签并附上技能包。
-这四步可用 `./scripts/release.sh tcs-<name> v<x.y.z>` 一条命令完成。
 
 ### 安全
 
-仓库公开，但脚本本身不含任何凭证：
+发布脚本不放在本仓库，另置于私有仓库：技能库对外可见，但维护者所用的
+自动化脚本不外露、也无法被他人提交 PR 篡改。
 
-- 令牌在运行时才从 macOS keychain 或 `GH_TOKEN` 取得，写入 600 权限的临时文件供
-  curl 以 `-H @file` 读取，**不出现在进程命令行中**（否则同机其他用户可用 `ps` 看到），
-  脚本退出时随临时目录删除
-- 建议把令牌配置为 **fine-grained 且仅对本仓库**授予 Contents 读/写，并设置过期时间；
-  即便脚本副本被篡改，泄露面也只限这一个仓库
+技能发布所需的令牌是 fine-grained 类型，仅对本仓库授予 Contents 读/写权限，
+即便令牌泄露，影响范围也只限这一个仓库。
 
