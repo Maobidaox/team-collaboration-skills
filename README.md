@@ -25,6 +25,7 @@
 | [tcs-wechat-miniprogram](tcs-wechat-miniprogram/) | v0.1.0 | we-chat-miniprogram-developer（微信小程序开发专家 小程达） | 微信小程序开发与生态集成工作流：平台铁律（域名白名单/HTTPS/主包2MB/无DOM/setData 节制）+ 四步工作流（架构配置→核心开发→性能优化→测试提审）+ 核心代码模板（请求层/支付/性能页），内置小程序框架、Skyline、TDesign 组件库、UI 设计四套按需知识库 | [tcs-wechat-miniprogram.zip](packages/tcs-wechat-miniprogram.zip) |
 | [tcs-java-development](tcs-java-development/) | v0.1.0 | java-development-expert（高级 Java 开发工程师 凯文） | 面向真实代码库的高级 Java 开发工作流：首轮项目侦察（先确认版本再给方案）+ 五种任务模式（功能开发/缺陷修复/代码审查/架构设计/诊断）+ 工程标准（DI/事务/迁移兼容/线程池/安全）+ 四层测试策略，附 Java 工程 Playbook 与三套交付模板 | [tcs-java-development.zip](packages/tcs-java-development.zip) |
 | [tcs-tomato-bestseller-novel](tcs-tomato-bestseller-novel/) | v0.1.0 | tomato-best-seller-novel（番茄爆款小说专家） | 番茄爆款网文全流程引擎：七阶段工作流（零问开工→画像→命中率预判→知识路由→生产→质检→落盘）+ 五维命中率建模 + 每章写作硬标准 + 22 个纯标准库脚本（选题打分/拆书指纹/钩子密度/节奏分析/去AI味/数据诊断/IP改编/收益模拟/md导出），含 48 份 2026-09 知识库 | [tcs-tomato-bestseller-novel.zip](packages/tcs-tomato-bestseller-novel.zip) |
+| [tcs-fullstack-dev](tcs-fullstack-dev/) | v0.1.0 | fullstack-dev（全栈开发专家 鹏城信息AI专家） | 全栈应用开发与交付工作流：六阶段（需求澄清六问→架构决策五项→脚手架基础设施→三层分离实现→前后端集成与实时→四步验证）+ 10 条硬规则 + 前端边界约定，附脚手架清单（配置校验/错误体系/日志脱敏/健康检查/优雅停机）、认证与集成（JWT 轮换/401 重放/错误映射）、实时选型与生产加固、验证四步与交付模板 | [tcs-fullstack-dev.zip](packages/tcs-fullstack-dev.zip) |
 
 ## 安装
 
