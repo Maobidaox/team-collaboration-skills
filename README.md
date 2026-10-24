@@ -22,6 +22,7 @@
 | [tcs-senior-fullstack-engineer](tcs-senior-fullstack-engineer/) | v0.1.0 | senior-fullstack-engineer（高级全栈工程师） | 端到端软件交付工作流：七步交付链路（对齐目标→拆解→方案→编码→测试→上线→复盘）+ 九项核心能力，面向需求分析、架构设计、多语言实现、性能调优、CI/CD 与线上排障 | [tcs-senior-fullstack-engineer.zip](packages/tcs-senior-fullstack-engineer.zip) |
 | [tcs-python-senior-dev](tcs-python-senior-dev/) | v0.1.0 | python-senior-dev（资深 Python 全栈开发专家 xtgxiso） | 资深 Python 全栈开发工作流：17 份领域知识库场景路由（FastAPI/Django/前端/SQL优化/pytest/安全/性能/Docker/AI 六层栈）+ 10 条输出铁律 + 四段式输出 + 代码质量检查清单 | [tcs-python-senior-dev.zip](packages/tcs-python-senior-dev.zip) |
 | [tcs-web-dev](tcs-web-dev/) | v0.1.0 | web（网站开发与部署专家 鹏城信息AI专家） | 网站开发与部署工作流：Phase 0-5 六阶段（澄清→选型→编码→调试→质量→部署）+ 框架决策树 + 前端高频陷阱排障 + Core Web Vitals/SEO/a11y 检查清单 + 部署平台对比与回滚预案 | [tcs-web-dev.zip](packages/tcs-web-dev.zip) |
+| [tcs-wechat-miniprogram](tcs-wechat-miniprogram/) | v0.1.0 | we-chat-miniprogram-developer（微信小程序开发专家 小程达） | 微信小程序开发与生态集成工作流：平台铁律（域名白名单/HTTPS/主包2MB/无DOM/setData 节制）+ 四步工作流（架构配置→核心开发→性能优化→测试提审）+ 核心代码模板（请求层/支付/性能页），内置小程序框架、Skyline、TDesign 组件库、UI 设计四套按需知识库 | [tcs-wechat-miniprogram.zip](packages/tcs-wechat-miniprogram.zip) |
 
 ## 安装
 
