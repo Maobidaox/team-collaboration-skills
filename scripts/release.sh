@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 # 把本地技能打包、提交入库，并发布为 GitHub Release。
+#
+# 安全设计（本脚本可放在公开仓库，本身不含任何凭证）：
+#   1. 令牌不硬编码、不写入仓库，仅在运行时从 macOS keychain 或 GH_TOKEN 取得
+#   2. 令牌写入 600 权限的临时文件供 curl 以 -H @file 读取，不出现在进程命令行中，
+#      因此同机其他用户无法通过 ps 看到令牌
+#   3. 令牌不通过环境变量传给子进程，脚本退出时临时文件随临时目录一并删除
+#   4. 建议把令牌配置为 fine-grained 且仅对 team-collaboration-skills 仓库授权，
+#      这样即使脚本副本被篡改，泄露面也仅限这一个仓库
 set -euo pipefail
 
 REPO_OWNER="${REPO_OWNER:-zengshuai2-lgtm}"
@@ -62,17 +70,24 @@ done
 [[ $VERSION =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || die "版本号格式须为 vX.Y.Z: $VERSION"
 [[ -f "$SKILLS_HOME/$SKILL/SKILL.md" ]] || die "找不到技能源码: $SKILLS_HOME/$SKILL/SKILL.md"
 
-if [[ -z ${GH_TOKEN:-} ]]; then
-  command -v security >/dev/null 2>&1 || die "未设置 GH_TOKEN，且本机缺少 security 命令"
-  GH_TOKEN="$(security find-internet-password -s github.com -w 2>/dev/null || true)"
-fi
-[[ -n $GH_TOKEN ]] || die "取不到 GitHub 令牌，请先设置 GH_TOKEN"
+[[ -f $PACKAGER ]] || PACKAGER=""
 
 WORK_DIR="$(mktemp -d)"
 trap 'rm -rf "$WORK_DIR"' EXIT
+HDR_FILE="$WORK_DIR/gh.header"
+
+# 令牌一律写进临时文件，再交给 curl 的 -H @file 读取；
+# printf 是 shell 内建命令，令牌不会出现在任何进程的命令行里。
+if [[ -n ${GH_TOKEN:-} ]]; then
+  (umask 077; printf 'Authorization: Bearer %s\n' "$GH_TOKEN" > "$HDR_FILE")
+else
+  command -v security >/dev/null 2>&1 || die "未设置 GH_TOKEN，且本机缺少 security 命令"
+  (umask 077; { printf 'Authorization: Bearer '; security find-internet-password -s github.com -w; printf '\n'; } > "$HDR_FILE")
+fi
+[[ $(wc -c < "$HDR_FILE") -gt 30 ]] || die "取不到 GitHub 令牌，请先设置 GH_TOKEN"
 
 log "打包 $SKILL"
-if [[ -f $PACKAGER ]]; then
+if [[ -n $PACKAGER ]]; then
   python3 "$PACKAGER" "$SKILLS_HOME/$SKILL" "$WORK_DIR" >/dev/null 2>&1 \
     || die "打包校验未通过，请先修复技能结构"
 else
@@ -84,7 +99,7 @@ PKG="$WORK_DIR/$SKILL.zip"
 
 SKILL="$SKILL" VERSION="$VERSION" PKG="$PKG" SKILL_DIR="$SKILLS_HOME/$SKILL" \
   REPO_OWNER="$REPO_OWNER" REPO_NAME="$REPO_NAME" BRANCH="$BRANCH" \
-  SOURCE_EXPERT="$SOURCE_EXPERT" DESC="$DESC" FORCE="$FORCE" GH_TOKEN="$GH_TOKEN" \
+  SOURCE_EXPERT="$SOURCE_EXPERT" DESC="$DESC" FORCE="$FORCE" HDR_FILE="$HDR_FILE" \
   python3 - <<'PY'
 import base64, json, os, re, subprocess, sys
 
@@ -92,12 +107,13 @@ owner, name = os.environ["REPO_OWNER"], os.environ["REPO_NAME"]
 branch = os.environ["BRANCH"]
 skill, version = os.environ["SKILL"], os.environ["VERSION"]
 pkg, skill_dir = os.environ["PKG"], os.environ["SKILL_DIR"]
-token = os.environ["GH_TOKEN"]
+hdr_file = os.environ["HDR_FILE"]
 force = os.environ["FORCE"] == "1"
 source_expert, desc = os.environ.get("SOURCE_EXPERT", ""), os.environ.get("DESC", "")
 
 base = f"https://api.github.com/repos/{owner}/{name}"
-H = ["-H", f"Authorization: Bearer {token}", "-H", "Accept: application/vnd.github+json"]
+# 令牌经 -H @file 传入，进程命令行中不可见
+H = ["-H", f"@{hdr_file}", "-H", "Accept: application/vnd.github+json"]
 
 
 def curl(method, url, data=None, upload=None):

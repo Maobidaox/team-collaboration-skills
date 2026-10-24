@@ -57,3 +57,14 @@ cd team-collaboration-skills
 新增技能时按此顺序：以 `tcs-<name>` 放入源码目录 → 生成 `packages/tcs-<name>.zip` →
 更新本 README 收录清单 → 打 Release 标签并附上技能包。
 这四步可用 `./scripts/release.sh tcs-<name> v<x.y.z>` 一条命令完成。
+
+### 安全
+
+仓库公开，但脚本本身不含任何凭证：
+
+- 令牌在运行时才从 macOS keychain 或 `GH_TOKEN` 取得，写入 600 权限的临时文件供
+  curl 以 `-H @file` 读取，**不出现在进程命令行中**（否则同机其他用户可用 `ps` 看到），
+  脚本退出时随临时目录删除
+- 建议把令牌配置为 **fine-grained 且仅对本仓库**授予 Contents 读/写，并设置过期时间；
+  即便脚本副本被篡改，泄露面也只限这一个仓库
+
