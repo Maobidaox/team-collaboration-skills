@@ -1,5 +1,5 @@
 ---
-name: software-team-sop
+name: tcs-software-team-sop
 description: SOP 驱动的软件开发团队工作流（蒸馏自 software-company 专家团）。当用户提出软件开发类需求——开发应用/网站/小游戏/工具脚本、报告 Bug 需要修复、编写 PRD、系统架构设计、市场/竞品调研——时使用本 skill。提供需求路由判定（快速模式/BugFix/标准 SOP/部分工作流）、四角色（产品经理/架构师/工程师/QA）协作规范与产出模板、质量关卡（全局一致性审查 IS_PASS、QA 智能路由、2 轮测试硬限制、任务分解不超过 5 个）。关键词：软件开发、开发应用、做网站、做小游戏、写个工具、Bug 修复、改 Bug、PRD、需求文档、架构设计、系统设计、测试、软件团队、software development、dev team。
 agent_created: true
 ---
