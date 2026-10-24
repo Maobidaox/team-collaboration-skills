@@ -23,6 +23,7 @@
 | [tcs-python-senior-dev](tcs-python-senior-dev/) | v0.1.0 | python-senior-dev（资深 Python 全栈开发专家 xtgxiso） | 资深 Python 全栈开发工作流：17 份领域知识库场景路由（FastAPI/Django/前端/SQL优化/pytest/安全/性能/Docker/AI 六层栈）+ 10 条输出铁律 + 四段式输出 + 代码质量检查清单 | [tcs-python-senior-dev.zip](packages/tcs-python-senior-dev.zip) |
 | [tcs-web-dev](tcs-web-dev/) | v0.1.0 | web（网站开发与部署专家 鹏城信息AI专家） | 网站开发与部署工作流：Phase 0-5 六阶段（澄清→选型→编码→调试→质量→部署）+ 框架决策树 + 前端高频陷阱排障 + Core Web Vitals/SEO/a11y 检查清单 + 部署平台对比与回滚预案 | [tcs-web-dev.zip](packages/tcs-web-dev.zip) |
 | [tcs-wechat-miniprogram](tcs-wechat-miniprogram/) | v0.1.0 | we-chat-miniprogram-developer（微信小程序开发专家 小程达） | 微信小程序开发与生态集成工作流：平台铁律（域名白名单/HTTPS/主包2MB/无DOM/setData 节制）+ 四步工作流（架构配置→核心开发→性能优化→测试提审）+ 核心代码模板（请求层/支付/性能页），内置小程序框架、Skyline、TDesign 组件库、UI 设计四套按需知识库 | [tcs-wechat-miniprogram.zip](packages/tcs-wechat-miniprogram.zip) |
+| [tcs-java-development](tcs-java-development/) | v0.1.0 | java-development-expert（高级 Java 开发工程师 凯文） | 面向真实代码库的高级 Java 开发工作流：首轮项目侦察（先确认版本再给方案）+ 五种任务模式（功能开发/缺陷修复/代码审查/架构设计/诊断）+ 工程标准（DI/事务/迁移兼容/线程池/安全）+ 四层测试策略，附 Java 工程 Playbook 与三套交付模板 | [tcs-java-development.zip](packages/tcs-java-development.zip) |
 
 ## 安装
 
