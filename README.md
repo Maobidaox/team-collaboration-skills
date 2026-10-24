@@ -5,6 +5,7 @@
 - `tcs-<name>/` 等子目录：技能源码，可直接复制到 WorkBuddy 技能目录使用
 - `packages/`：同样内容打包好的技能包（`.zip`），可直接导入 WorkBuddy
 - `scripts/install.sh`：一条命令安装技能
+- `scripts/release.sh`：一条命令完成打包、入库与发布 Release
 
 ## 命名规范
 
@@ -55,3 +56,4 @@ cd team-collaboration-skills
 
 新增技能时按此顺序：以 `tcs-<name>` 放入源码目录 → 生成 `packages/tcs-<name>.zip` →
 更新本 README 收录清单 → 打 Release 标签并附上技能包。
+这四步可用 `./scripts/release.sh tcs-<name> v<x.y.z>` 一条命令完成。
