@@ -18,6 +18,7 @@
 |------|------|---------|------|--------|
 | [tcs-software-team-sop](tcs-software-team-sop/) | v0.1.0 | software-company 软件开发团队 | SOP 驱动的软件开发工作流：需求路由判定（快速模式 / BugFix / 标准 SOP / 部分工作流）、四角色协作规范（产品经理、架构师、工程师、QA）、质量关卡（IS_PASS 全局一致性审查、QA 智能路由、2 轮测试上限、任务分解 ≤ 5） | [tcs-software-team-sop.zip](packages/tcs-software-team-sop.zip) |
 | [tcs-mvp-dev-sop](tcs-mvp-dev-sop/) | v0.1.0 | MVP开发专家团 | MVP 商业级交付 SOP：三级路径路由 + 六阶段流程 + 七角色协作 + Spec 契约与质量门禁 | [tcs-mvp-dev-sop.zip](packages/tcs-mvp-dev-sop.zip) |
+| [tcs-senior-developer](tcs-senior-developer/) | v0.1.0 | senior-developer（高级开发工程师） | 高级全栈开发工程师工作流：三阶段铁律工作流（计划→写验报→交付清单）+ 全栈/前端/浏览器自动化三条子能力路由 | [tcs-senior-developer.zip](packages/tcs-senior-developer.zip) |
 
 ## 安装
 
