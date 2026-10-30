@@ -1,6 +1,6 @@
 ---
 name: tcs-ecom-visual-team
-description: 全链路电商视觉生成团队（11 人）。当电商视觉任务需要走完整条链路时使用——从判断成交驱动力、建证据账本、锁 Style Lock，到商品简报、合规文案与套图方案、逐槽提示词包、真实出图出片、后期精修与详情页排版、终审四门、交付归档、上架后数据迭代；由主控调度总监统一排工、控节奏、管阶段看板、门禁等待期并行推进、卡住时给最小可继续步骤。关键词：电商视觉、主图、详情页、套图、白底图、场景图、A+、转化率、点击率、卖点提炼、证据账本、合规审查、广告法、绝对化用语、Style Lock、Storyboard、生图提示词、图生视频、视频分镜、后期精修、详情页排版、终审品控、上架归档、A/B 测试、Listing、PDP、跨境本地化。英文触发 hero image、lifestyle、flat lay、macro、PDP、A+、listing、CTR、CVR 同样适用。单环节场景仍可用分技能：只要某张图的出图 prompt → tcs-ecom-shot-prompts；只要真实出图出片 → tcs-image-video-director；只做策略与合规审查 → tcs-ecom-visual-strategy；只做六阶段生产包 → tcs-ecom-visual-studio。本技能已完整收录四份分技能内容，可独立使用。不适用于非电商的通用创意设计、Logo 与品牌 VI 设计，或不需要合规约束的纯艺术创作。
+description: 全链路电商视觉生成团队（11 人）。当电商视觉任务需要走完整条链路时使用——从简报粗提取、判断成交驱动力、建证据账本、锁 Style Lock，到商品简报、合规文案与套图方案、逐槽提示词包、真实出图出片、逐槽复检、后期精修与详情页排版、终审四门、交付归档、上架后数据迭代。由主控调度总监统一排工、控节奏、管阶段看板、守返工预算（同一槽位最多重做 2 轮）、文案变更单点广播、卡住时给最小可继续步骤；门禁等待期只推不依赖确认内容的骨架，不预填冻结文案。关键词：电商视觉、主图、详情页、套图、白底图、场景图、A+、转化率、点击率、卖点提炼、证据账本、合规审查、广告法、绝对化用语、Style Lock、Storyboard、生图提示词、图生视频、视频分镜、后期精修、详情页排版、终审品控、上架归档、A/B 测试、Listing、PDP、跨境本地化。英文触发 hero image、lifestyle、flat lay、macro、PDP、A+、listing、CTR、CVR 同样适用。单环节场景仍可用分技能：只要某张图的出图 prompt → tcs-ecom-shot-prompts；只要真实出图出片 → tcs-image-video-director；只做策略与合规审查 → tcs-ecom-visual-strategy；只做六阶段生产包 → tcs-ecom-visual-studio。本技能已完整收录四份分技能内容，可独立使用。不适用于非电商的通用创意设计、Logo 与品牌 VI 设计，或不需要合规约束的纯艺术创作。
 agent_created: true
 ---
 
@@ -11,17 +11,21 @@ agent_created: true
 | | 环节 | 人 |
 |---|---|---|
 | — | **全程调度**（排工/节奏/看板/推动/仲裁） | **凯** Kai |
+| 1a | 简报**粗提取**（商品身份 + 可见事实） | **小瞳** Iris |
 | 0 | 策略与合规 | **凌** Sage |
-| 1 | 商品简报 | **小瞳** Iris |
+| 1b | 简报**定稿** | **小瞳** Iris |
 | 2 | 文案 + 套图方案 | **文迪** Wendy |
 | 3 | 门禁等待（**不空转**） | **凯** 并行推进 |
 | 4 | 逐槽提示词包 | **伊万** Evan |
 | 5 | 视频分镜脚本 | **蒙太** Monty |
 | 6 | 真实生成 / 出片 | **雷** Ray |
+| 6b | **逐槽复检**（必经） | **伊万** Evan |
 | 7 | 精修 / 排版 / 合成 | **锐** Rex |
 | 8 | 终审四门 | **薇** Vega |
 | 9 | 交付归档 | **麦琪** Maggie |
 | 10 | 上架后数据迭代 | **诺** Nova |
+
+> **两个容易错的顺序**：**1a 在 0 之前**（凌要先拿到商品身份才能判断驱动力，无参考图时跳过 1a）；**6b 在 7 之前**（成片先经伊万逐槽复检，再进精修）。两处顺序错了都会直接造成返工。
 
 > **内外分工**：**麦琪对外**（接单、面对用户、守三道门禁、最终交付）；**凯对内**（排工、控节奏、推流程、管看板、仲裁升级）。
 
@@ -38,11 +42,11 @@ agent_created: true
 | 用户实际要的 | 直接跳到 |
 |---|---|
 | 「先想清楚」「为什么卖不动」「这句能不能说」 | 阶段 0（凌）→ 停在策略门 |
-| 「帮我做一套主图详情」+ 参考图 | 阶段 1 起步（默认零录入） |
+| 「帮我做一套主图详情」+ 参考图 | **阶段 1a 起步**（小瞳粗提取 → 凌 → 1b 定稿，默认零录入） |
 | 「只要这张图的 prompt」 | 阶段 4，且只读 25 套模板中的那一个 |
-| 「帮我真的生成出来」 | 阶段 6（雷），但前序产出必须具备 |
+| 「帮我真的生成出来」 | 阶段 6（雷），但前序产出必须具备，且出片后必经 6b 复检 |
 | 「已有图，看看哪里有问题」 | 阶段 0 审查模式（凌）+ 阶段 8（薇） |
-| 「上线了，数据不好」 | 阶段 10（诺） |
+| 「上线了，数据不好」 | 阶段 10（诺）· 尚未上架则交**建档模式**（记录表 + 观测口径），不是复盘 |
 
 **单环节任务不必走全链路**，但**任何交付成品都必须过终审四门**。
 
@@ -77,7 +81,18 @@ agent_created: true
 
 **确认后的文案逐字冻结** —— 下游不得新增、改写、润色，发现错字也要退回请用户确认。
 
-**门禁等待绝不空转** —— 等用户确认期间，由凯把不依赖该门禁的阶段全部推起来（蒙太写视频脚本、锐备排版规格与字体清单、诺备数据记录表）。卡住时必须给用户**最小可继续步骤**（「你只需做一个动作，我就能继续下一步」），不说「请提供更多信息」。
+**门禁等待绝不空转，但也不造返工** —— 等用户确认期间，凯把**不依赖确认内容**的部分推起来：
+
+| 推给 | 只做 | 不做 |
+|---|---|---|
+| 蒙太 | 骨架版脚本（时长 / 策略 / 分镜结构 / 运镜），文案留占位 | 不填口播词与画面文字 |
+| 锐 | 平台规格表、字体授权清单、排版模板 | 不合成文字 |
+| 雷 | 素材角色表、三栏边界、能力门探测、台账初始化 | 不提交真实生成 |
+| 诺 | 数据记录表与观测口径 | 不做无数据的归因 |
+
+**文案一改，凯负责单点广播**（改了哪几处 → 影响谁 → 只改受影响段）。为了不空转而预填冻结内容，用户一改就全废，比空等更糟。
+
+卡住时必须给用户**最小可继续步骤**（「你只需做一个动作，我就能继续下一步」），不说「请提供更多信息」。
 
 ## 跨阶段硬约束（12 条）
 
@@ -85,7 +100,7 @@ agent_created: true
 2. **不改产品** —— 形状、结构、Logo、印花、包装、色号以用户素材为准，不为好看而改
 3. **不越权功效** —— 医疗、保健、绝对化用语、保证性效果一律降级或删除
 4. **逐字冻结** —— 已确认文案一个字不改，退回请用户确认
-5. **只补缺口** —— 个别槽位失败只补那一个，**绝不整套重跑**
+5. **只补缺口** —— 个别槽位失败只补那一个，**绝不整套重跑**；且**同一槽位最多重做 2 轮**，超过就换备选方案、标缺失交付或问用户，不无限重试
 6. **文字后期** —— 标题、Logo、价格、数字一律后期合成，不指望模型直出准确文字
 7. **不换服务** —— 目标生成能力不可用时降级为方案档，不偷偷改用其他模型
 8. **不猜参数** —— schema 未声明的字段不传，不传空值、不传历史别名
@@ -107,11 +122,11 @@ agent_created: true
 | 组队机制、降级、交接契约、冲突仲裁、**并行矩阵与阶段看板** | `references/team-protocol.md` |
 | 某位成员的职责与纪律 | `references/members/0X-*.md` |
 | 排工顺序、节奏失控、卡住怎么推、阶段看板、仲裁升级 | `references/members/11-kai-dispatch-director.md` |
-| **阶段 0** 策略、证据账本、Style Lock、Storyboard、合规 | `references/members/02-sage-strategy-compliance.md` → 深读 `references/modules/visual-strategy/references/` |
-| **阶段 1** 参考图分析、商品简报 | `references/members/03-iris-product-visual-analyst.md` → 深读 `references/modules/visual-studio/references/s1-product-brief.md` |
+| **阶段 1a→0→1b** 简报粗提取 → 策略 → 简报定稿 | `references/members/03-iris-product-visual-analyst.md` → `references/members/02-sage-strategy-compliance.md`；深读 `references/modules/visual-strategy/references/` 与 `.../visual-studio/references/s1-product-brief.md` |
 | **阶段 2** 文案与套图方案 | `references/members/04-wendy-marketing-copy-strategist.md` → 深读 `.../visual-studio/references/s2-copy-and-plan.md` |
 | **阶段 4** 逐槽提示词 + 25 套摄影模板 | `references/members/05-evan-image-prompt-engineer.md` → 深读 `.../visual-studio/references/s3-image-prompts.md`；单图模板读 `.../shot-prompts/references/template-*.json` 中的**那一个** |
-| **阶段 5–6** 视频脚本、真实生成、成片剪辑 | `references/members/06-ray-execution-director.md` + `references/s6-film-editing.md` |
+| **阶段 5** 视频脚本（含等待期骨架版） | `references/members/07-monty-video-script-planner.md` |
+| **阶段 6–6b** 真实生成、出片、**逐槽复检** | `references/members/06-ray-execution-director.md` + `references/s6-film-editing.md` + `references/members/05-evan-image-prompt-engineer.md`（复检） |
 | **阶段 7** 精修、排版、导出规格 | `references/members/08-rex-retouch-and-layout.md` + `references/s7-retouch-specs.md` |
 | **阶段 8** 终审四门 | `references/members/09-vega-qc-director.md` + `references/s8-qa-forms.md` |
 | **阶段 9** 交付归档 | `references/s10-delivery-handoff.md` |
@@ -122,11 +137,12 @@ agent_created: true
 ## 脚本
 
 ```bash
-# 证据账本（阶段 0，交付前必跑 check）
+# 证据账本（凌建 → 文迪写前查 → 薇交付前 check，三人共用同一份）
 S=~/.workbuddy/skills/tcs-ecom-visual-team/scripts/claims.py
 python3 $S --project <工作目录> init
 python3 $S --project <dir> add C1 --claim "304 不锈钢" --source "包装标注" --status confirmed
-python3 $S --project <dir> check      # 有 pending/forbidden → 退出码 1，不放行
+python3 $S --project <dir> list       # 文迪：写文案前必查（待补证/禁止的都不能写）
+python3 $S --project <dir> check      # 薇：交付前必跑，有 pending/forbidden → 退出码 1，不放行
 python3 $S --project <dir> export
 
 # 生成台账（阶段 6，执行档推荐；注意 --project 为必填）
@@ -146,12 +162,14 @@ python3 $P --project <dir> deliver <产物id>
 3. **下一步操作指引** —— 提示词喂给哪个工具、怎么验收、怎么上传
 4. **状态分级** —— 已完成 / 待处理 / 被阻塞（含原因与最小可继续步骤）/ 未执行（标 `unsupported`）
 
-## 自检（交付前问自己四句）
+## 自检（交付前问自己六句）
 
 - 这版过了薇的四门吗？四门是逐门判的还是只看整体？
 - 有个别槽位失败时，我是只补了缺口，还是重做了整套？
 - 用户看我的回复，能否分清哪些是真做出来的、哪些还待处理？
 - **等用户确认的这段时间，我是在空等，还是把能并行的活推起来了？**
+- **成片是经过伊万逐槽复检的，还是从雷直接进终审的？**
+- **同一槽位重做超过 2 轮，我是继续加码还是换了路子？**
 
 ## 与四份分技能的关系
 
