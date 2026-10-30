@@ -34,7 +34,7 @@
 
 ### 方式一：下载技能包（推荐）
 
-从 [Releases](https://github.com/zengshuai2-lgtm/team-collaboration-skills/releases) 下载
+从 [Releases](https://github.com/Maobidaox/team-collaboration-skills/releases) 下载
 `tcs-software-team-sop.zip`，解压到 WorkBuddy 用户级技能目录：
 
 ```bash
@@ -45,7 +45,7 @@ unzip -o tcs-software-team-sop.zip -d ~/.workbuddy/skills
 ### 方式二：用安装脚本
 
 ```bash
-git clone https://github.com/zengshuai2-lgtm/team-collaboration-skills.git
+git clone https://github.com/Maobidaox/team-collaboration-skills.git
 cd team-collaboration-skills
 ./scripts/install.sh tcs-software-team-sop           # 从技能包安装
 ./scripts/install.sh tcs-software-team-sop --source  # 从源码目录安装
